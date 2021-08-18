@@ -4,11 +4,15 @@ describe('E2E Testing', () => {
   });
 
   it('sould wait for table list render', () => {
+    cy.wait(500);
     cy.get('.rdt_TableBody').find('.rdt_TableRow').should('have.length', 50);
   });
 
   it('sould filter table list by Male gender', () => {
     cy.get('[data-testid="gender"]').select('male');
+
+    cy.wait(500);
+
     cy.get('.rdt_TableBody')
       .get('.rdt_TableRow')
       .eq(1)
@@ -19,6 +23,9 @@ describe('E2E Testing', () => {
 
   it('sould filter table list by Female gender', () => {
     cy.get('[data-testid="gender"]').select('female');
+
+    cy.wait(500);
+
     cy.get('.rdt_TableBody')
       .get('.rdt_TableRow')
       .eq(1)
@@ -29,6 +36,9 @@ describe('E2E Testing', () => {
 
   it('sould click on load more button', () => {
     cy.get('[data-testid="load-more"]').click();
+
+    cy.wait(500);
+
     cy.get('.rdt_TableBody').find('.rdt_TableRow').should('have.length', 100);
   });
 
@@ -43,8 +53,11 @@ describe('E2E Testing', () => {
         const firstName = fullName.split(' ')[0];
         cy.get('[data-testid="search"]').type(firstName);
       });
+    
+    cy.wait(500);
 
     cy.get('.rdt_TableBody').find('.rdt_TableRow').should('have.length', 1);
+
     cy.get('[data-testid="search"]').clear();
   });
 

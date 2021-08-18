@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "coodesh-front-end-challenge-2021",
-    "slug": "coodesh-front-end-challenge-2021",
+    "name": "Front End Challenge 2021",
+    "slug": "front-end-challenge-2021",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

@@ -1,6 +1,4 @@
-out
 node_modules
-next-env.d.ts
-next.config.js
-babel.config.js
-prettier.config.js
+.expo
+.expo-shared
+scripts/*.min.js

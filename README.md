@@ -6,7 +6,7 @@ Este é um desafio para empresas avaliarem meus conhecimentos como Front-end Eng
 
 O objeto desse repositório é eu ter um local central onde posso aplicar os conhecimentos que adquiri ao longo da minha carreira como front-end.
 
-Obviamente esse projeto demo abranje apenas de um modo geral os meus conhecimentos, mas acredito já ser uma base solicita para uma avaliação.
+Obviamente esse projeto demo abrange apenas de um modo geral os meus conhecimentos, mas acredito já ser uma base sólida para uma avaliação.
 
 Como da para notar no repositório, ele é divido em duas plataformas, sendo o mesmo projeto construído para web e mobile.
 
@@ -25,8 +25,8 @@ Esse projeto usa como base o desafio da [Coodesh](https://coodesh.com/), aqui vo
 - React Native
 - Typescript
 - Expo - https://expo.dev/
-- Wix UI Lib - https://wix.github.io/react-native-ui-lib
-- Detox E2E Testing Tool - https://github.com/wix/Detox
+- Wix UI Lib - https://wix.github.io/react-native-ui-lib/
+- Detox E2E Testing Tool - https://github.com/wix/Detox/
 
 ## Agradecimento
 

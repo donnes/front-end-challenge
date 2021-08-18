@@ -20,6 +20,8 @@ yarn lint
 yarn cypress
 ```
 
+![Tests](../assets/website-tests.png)
+
 ## Preview
 
 https://front-end-challenge-2021.vercel.app/

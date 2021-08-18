@@ -95,6 +95,7 @@ const Home: React.FC = () => {
           <SimpleGrid width="full" gridTemplateColumns="1fr auto" gap="sm">
             <InputGroup size="lg">
               <Input
+                data-testid="search"
                 type="text"
                 placeholder="Search by name, nationality or email"
                 paddingRight="12"
@@ -120,6 +121,7 @@ const Home: React.FC = () => {
               </InputRightElement>
             </InputGroup>
             <Select
+              data-testid="gender"
               placeholder="Gender"
               size="lg"
               value={router.query.gender}
@@ -144,6 +146,10 @@ const Home: React.FC = () => {
 
           {shouldRenderLoadMore && (
             <Button
+              data-testid="load-more"
+              variant="ghost"
+              color="primary"
+              leftIcon={<RiRefreshLine size={24}/>}
               onClick={() => {
                 setPage(page + 1);
                 router.push({
@@ -151,9 +157,6 @@ const Home: React.FC = () => {
                   query: {...router.query, page: String(page + 1)}
                 });
               }}
-              variant="ghost"
-              color="primary"
-              leftIcon={<RiRefreshLine size={24}/>}
               isDisabled={isLoadingMore || isReachingEnd}
             >
               {isLoadingMore ? 'Loading...' : isReachingEnd ? 'No more clients to load' : 'Load more'}

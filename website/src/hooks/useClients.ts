@@ -25,7 +25,7 @@ const useClients = (query: UseClientsQuery): UseClientsReturn => {
   const getKey = (pageIndex, previousPageData) => {
     const fetchParams = omit(query, ['page', 'viewId', 'search']);
     if (previousPageData && !previousPageData.length) return null;
-    return `/?seed=donnes&results=50&page=${pageIndex}&${qs.stringify(fetchParams)}`;
+    return `/?results=50&page=${pageIndex}&${qs.stringify(fetchParams)}`;
   }
   const {data, error, isValidating, size: page, setSize: setPage} = useSWRInfinite(getKey, fetcher, {
     revalidateOnFocus: false,

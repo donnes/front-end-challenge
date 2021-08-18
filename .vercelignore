@@ -1,0 +1,6 @@
+*.md
+.gitignore
+cypress.json
+.eslintrc.json
+.eslintignore
+.editorconfig

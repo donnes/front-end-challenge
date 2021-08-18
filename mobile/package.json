@@ -8,11 +8,18 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "3.5.2",
+    "@react-native-community/netinfo": "6.0.0",
+    "@react-native-picker/picker": "1.16.1",
     "expo": "~42.0.1",
+    "expo-blur": "~9.0.3",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-reanimated": "~2.2.0",
+    "react-native-ui-lib": "^5.29.0",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {

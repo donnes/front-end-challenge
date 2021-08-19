@@ -1,8 +1,7 @@
 import {useSWRInfinite} from 'swr';
 import qs from 'qs';
-import {omit} from 'lodash';
-import {fetcher} from '@/lib';
-import {Client} from '@/types';
+import {fetcher} from '../lib';
+import {Client} from '../types';
 
 type UseClientsReturn = {
   results: Client[];
@@ -15,17 +14,14 @@ type UseClientsReturn = {
 };
 
 type UseClientsQuery = {
-  search: string;
   gender: string;
   page: string | number;
-  viewId: string;
 };
 
 const useClients = (query: UseClientsQuery): UseClientsReturn => {
   const getKey = (pageIndex: number, previousPageData: any) => {
-    const fetchParams = omit(query, ['page', 'viewId', 'search']);
     if (previousPageData && !previousPageData.length) return null;
-    return `/?results=50&page=${pageIndex}&${qs.stringify(fetchParams)}`;
+    return `/?results=50&page=${pageIndex}&${qs.stringify(query)}`;
   }
   const {data, error, isValidating, size: page, setSize: setPage} = useSWRInfinite(getKey, fetcher, {
     revalidateOnFocus: false,

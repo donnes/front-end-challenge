@@ -7,21 +7,48 @@ const Container = styled.View`
   background-color: white;
 `;
 
-const Content = styled.View`
-  padding-top: 24px;
-  padding-bottom: 24px;
+const Content = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    flexGrow: 1,
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 24,
+    paddingBottom: 24,
+  }
+})`
+  flex-grow: 1;
 `;
 
-const Page: React.FC = ({children}) => {
+type ScreenProps = {
+  title?: string;
+  hasBack?: boolean;
+  onScrollReachingEnd?: () => void;
+};
+
+const Screen: React.FC<ScreenProps> = ({
+  children,
+  title,
+  hasBack = false,
+  onScrollReachingEnd = () => null
+}) => {
   return (
     <Container>
-      <TopBar/>
+      <TopBar title={title} hasBack={hasBack}/>
 
-      <Content>
+      <Content
+        onScroll={({nativeEvent}) => {
+          const {layoutMeasurement, contentOffset, contentSize} = nativeEvent;
+          const hasReachingEnd = layoutMeasurement.height + contentOffset.y >= contentSize.height - 20;
+          if (hasReachingEnd) {
+            onScrollReachingEnd();
+          }
+        }}
+        scrollEventThrottle={20}
+      >
         {children}
       </Content>
     </Container>
   );
 }
 
-export default Page;
+export default Screen;

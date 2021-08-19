@@ -14,8 +14,8 @@ type UseClientsReturn = {
 };
 
 type UseClientsQuery = {
-  gender: string;
-  page: string | number;
+  gender?: string;
+  page: number;
 };
 
 const useClients = (query: UseClientsQuery): UseClientsReturn => {

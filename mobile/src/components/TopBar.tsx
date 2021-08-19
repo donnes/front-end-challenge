@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import Constants from 'expo-constants';
-import {useAssets} from 'expo-asset';
+import {useNavigation} from '@react-navigation/native';
 import {
   TopNavigation,
   TopNavigationAction,
   MenuItem,
   OverflowMenu,
+  TopNavigationProps,
   useTheme
 } from '@ui-kitten/components';
 import {Ionicons} from '@expo/vector-icons';
@@ -23,23 +24,25 @@ const Container = styled.View`
   background-color: white;
 `;
 
-const Image = styled.Image.attrs({
-  resizeMode: 'contain',
-})`
-  width: 120px;
-`;
+interface TopBarProps extends TopNavigationProps {
+  hasBack: boolean;
+}
 
-const TopBar: React.FC = () => {
+const TopBar: React.FC<TopBarProps> = ({ hasBack = false, ...props }) => {
   const theme = useTheme();
+  const {goBack} = useNavigation();
   const [menuVisible, toggleMenu] = useState<boolean>(false);
-  useAssets([require('../../assets/coodesh-logo.png')]);
 
-  const renderTitle = () => (
-    <Image source={require('../../assets/coodesh-logo.png')}/>
+  const BackAction = () => (
+    <TopNavigationAction
+      onPress={goBack}
+      icon={(props) => <Ionicons {...props} name="arrow-back" size={24} />}
+    />
   );
 
   const renderMenuAction = () => (
     <TopNavigationAction
+      onPress={() => toggleMenu(!menuVisible)}
       icon={() => (
         <Ionicons
           name="person-circle-outline"
@@ -47,7 +50,6 @@ const TopBar: React.FC = () => {
           color={theme['color-primary-500']}
         />
       )}
-      onPress={() => toggleMenu(!menuVisible)}
     />
   );
 
@@ -73,7 +75,10 @@ const TopBar: React.FC = () => {
   return (
     <Container>
       <TopNavigation
-        title={renderTitle}
+        {...props}
+        style={{flex: 1}}
+        alignment="center"
+        accessoryLeft={hasBack ? BackAction : undefined}
         accessoryRight={renderOverflowMenuAction}
       />
     </Container>

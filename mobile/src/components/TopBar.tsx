@@ -22,6 +22,7 @@ const Container = styled.View`
   padding-top: ${Constants.statusBarHeight}px;
   box-shadow: 0px 2px 1px rgba(0,0,0,0.22);
   background-color: white;
+  z-index: 99;
 `;
 
 interface TopBarProps extends TopNavigationProps {

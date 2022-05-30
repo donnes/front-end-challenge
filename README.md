@@ -1,4 +1,4 @@
-# Front-End Challenge 🏅 2021
+# Front-End Challenge 🏅
 
 ## Introdução
 
